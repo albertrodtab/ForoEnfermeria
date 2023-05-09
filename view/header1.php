@@ -14,7 +14,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+
 <header>
     <!--Start header Diseño aplicado desde CodePen-->
     <div class="header">
@@ -29,11 +29,24 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="view/user_login.php">Únete</a></li>
-                    <li><a href="view/user_register.php">Regístrate</a></li>
-                    <li><a href="view/user_contacto.php">Contacto</a></li>
+                    <li><a href="index2.php">Inicio</a>
+                    <li><a href="index2.php?action=mostrarLogin&controller=controller_usuario">Unete</a>
+                    <li><a href="index2.php?action=mostrarRegister&controller=controller_usuario">Registrate</a>
+<!--                    <li><a href="index2.php?action=listarTemas&controller=controller_tema">Listado Temas</a>-->
+                    <li><a href="index2.php?action=mostrarFormContacto&controller=controller_consulta">Contacto</a></li>
+                    <li><a href="index2.php?action=cerrarSesion&controller=controller_usuario">Cerrar sesion</a>
                 </ul>
             </nav>
+        </div>
+        <div>
+            <p class = "sesion"> <?php if(isset($_SESSION['user'], $_SESSION['u_level']))
+                if($_SESSION['u_level'] == 0) {
+                    echo "Has iniciado sesión con: ", $_SESSION['user'], " como Administrador";
+                } else{
+                    echo "Has iniciado sesión con: ", $_SESSION['user'], " como usuario Básico";
+                }
+                ?>
+            </p>
         </div>
         <!--Menu end-->
 

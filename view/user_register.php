@@ -1,49 +1,34 @@
 <?php
-require "header2.php" ?>
+require_once "header1.php" ?>
 
 <!--Pagina que muestra un formulario para iniciar sesion-->
 
-<div id="contenedor">
-    <header>
-        <h1>Registro de Usuario</h1>
-    </header>
-    <body>
-    <p>
-        Para registrarte necesitarás un nombre de usuario, una contraseña y una cuenta de correo electrónico.<br>
+<section>
+    <div class=="body">
 
-    </p>
-    <form action="" method="post">
-        <div class="formulario">
-            <form action="" method="post">
-                <div class="form">
-                    <input type="text" name="user" placeholder="Usuario" class="form-input"><br/>
-                    <input type="password" name="password" placeholder="Contraseña" class="form-input"><br/>
-                    <input type="text" name="email" placeholder="Email" class="form-input"><br/>
-                    <input type='submit' name='submit' value='Registrarse' class="form-boton">
-                </div>
+            <h1>Registro de Usuario</h1>
 
-                <?php
-                include "../controller/sesion.php";
-                include "../model/usuario.php";
 
-                //Con esto evito que me lance un warning cuando el formulario aún no tiene datos.
-                if($_SERVER["REQUEST_METHOD"] == "POST") {
+        <p>
+            Para registrarte necesitarás un nombre de usuario, una contraseña y una cuenta de correo electrónico.<br>
+        </p>
+            <div class="formulario">
+                <form action="index2.php?action=registrarUsuario&controller=controller_usuario" method="post">
+                    <div class="form">
+                        <input type="text" name="user" placeholder="Usuario" class="form-input"><br/>
+                        <input type="password" name="password" placeholder="Contraseña" class="form-input"><br/>
+                        <input type="text" name="email" placeholder="Email" class="form-input"><br/>
+                        <input type='submit' name='submit' value='Registrarse' class="form-boton">
+                    </div>
+                </form>
 
-                    $user = new usuario($_POST['user'], $_POST['password'], $_POST['email']);
-                    $user ->comprobaciones();
-                    $user ->nuevo($user);
-                    header("Location:user_login.php");
-                }
+            </div>
 
-                ?>
 
-            </form>
-        </div>
-    </form>
-    </body>
-</div>
+    </div>
+</section>
 
 
 <?php require "footer.php" ?>
-</html>
+
 

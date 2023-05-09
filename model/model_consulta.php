@@ -3,17 +3,18 @@
 
 use PHPMailer\controller\Phpmailer\PHPMailer;
 
-require 'Phpmailer/Exception.php';
-require 'Phpmailer/PHPMailer.php';
-require 'Phpmailer/SMTP.php';
+require 'controller/Phpmailer/Exception.php';
+require 'controller/Phpmailer/PHPMailer.php';
+require 'controller/Phpmailer/SMTP.php';
+require 'config.php';
 
 
 
 class consulta
 {
-    public $user;              //Nombre de usuario
-    public $contrasena;         //Contrasena del usuario
-    public $email;              //email del usuario
+    public $user;              //Nombre de modelUsuario
+    public $contrasena;         //Contrasena del modelUsuario
+    public $email;              //email del modelUsuario
     public $descripcion;           //descripcion de la consulta
 
 
@@ -54,10 +55,10 @@ class consulta
         // Para utilizar la autenticación SMTP
         $mail->SMTPAuth = true;
 
-        // Nombre de usuario para la autenticación SMTP - usar email completo para gmail
+        // Nombre de modelUsuario para la autenticación SMTP - usar email completo para gmail
         $mail->Username = 'albertrodtab@hotmail.es';
         // Password para la autenticación SMTP
-        $mail->Password = 'Leehty59.';
+        $mail->Password = MAIL_PASSWORD;
 
         // Estableciendo como quién se va a enviar el mail
         $mail->setFrom('albertrodtab@hotmail.es', 'El equipo de ArtDeveloper');
@@ -71,7 +72,7 @@ class consulta
                 Nombre: {$_POST['user']}
                 Descripcion: {$_POST['descripcion']}
                 EOT;
-        // Enviando el mensaje y controlando los errores
+        // Enviando el modelMensaje y controlando los errores
         if (!$mail->send()) {
             echo "No se pudo enviar el correo. Intentelo más tarde.";
         } else {
