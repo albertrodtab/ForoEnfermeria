@@ -20,6 +20,7 @@ p {
     text-align:center;
     background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
     color:white;
+    border-style: solid;
 }
 
 .inner-header {
@@ -113,21 +114,53 @@ nav li:hover{
     cursor: pointer;
 }
 
+.tabla {
+    /*border-style: solid;*/
+    /*border-color: black;*/
+    border-collapse: collapse;
+    margin: 10px auto;
+    min-height: 100px; /* Establece un tamaño mínimo en la altura */
+
+    /*display: flex;*/
+
+}
+.tabla caption{
+    background-color: #00ACC1FF;
+    color: white;
+    padding: 10px;
+    caption-side: top; /* Establece la posición de la leyenda */
+    font-weight: bold; /* Agrega un peso de fuente más grande */
+    text-transform: uppercase; /* Cambia el texto a mayúsculas */
+}
+
+.tabla th {
+    background-color: #00ACC1FF;
+    color: white;
+
+}
+
+.tabla td, .tabla th {
+    border: 1px solid black;
+    padding: 5px;
+}
+
 
 .body{
-    min-height: 100vh;
+    /*border-style: solid;*/
+    /*border-color: red;*/
+    min-height: 60vh;
     padding: 10px;
+
 }
 
 
 footer{
     position: absolute;
-    width: 100%;
+    width: 99%;
     margin-bottom: 0;
 }
 
 .redes {
-    width: 100%;
     text-align:center;
     background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
     color:white;
