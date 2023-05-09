@@ -1,0 +1,73 @@
+
+
+Se ha creado un foro con una interfaz sencilla que permite interacionar a cualquier visitante con la información contenida.
+
+Para ello se ha decido implementar una base de datos MySql que tiene 3 usuarios con distinto nivel de acceso para su gestión
+Usuario gestión base de datos (acceso total a todas las bases de datos)
+
+usuario root
+contraseña vacia
+
+Usuario gestión base de datos foroenfermeriadb (solo acceso a la base de datos del foro, con acceso total)
+
+usuario foroenfermeriauser
+contraseña foroenfermeria
+
+Usuario gestión mensajes base de datos foroenfermeriadb (solo acceso a la tabla de mensajes de la basde de datos del foro)
+
+usuario foroenfermeriabasic
+contraseña basicforoenf
+
+Para el desarrollo se ha trabajado con PHP 8.0, se ha diseñado la aplicación siguiendo el patrón MVC separando la lógica
+y el modelo de datos de la parte visual del programa.
+
+Con una implementación html, muy sencilla y con un poco de diseño CSS se ha conseguido un entorno visual y amigable para
+el visitante o el gestor del foro.
+
+Las funcionalidades que permite el foro son visualizar el contenido del mismo por cualquier usuario que entre en la web.
+Permite enviar una consulta a través de un formulario que remite un correo al gestor del foro a cualquier usuario que visite
+el foro.
+A mayores cualquier usuario puede registrarse en el mismo y posteriormente al registro, logearse para poder interactuar dentro
+del foro.
+
+La distribución del foro se ha establecido en categorías, temas y mensajes, de este modo el administrador tiene control absoluto
+para añadir, modificar o eliminar elementos de cada uno de los apartados con la salvedad de que no puede modificar un mensaje
+introducido por otro usuario, aunque si podrá eliminarlo por si lo considera inoportuno.
+
+Los usuarios registrados con perfil de acceso básico, que es el predeterminado a la hora de registrarse, podrán consultar las
+categorías, consultar y añadir temas, así como, modificar aquellos temas creados por ellos pero, no los creados por otros
+usuarios y no podrán borrar ningún tema.
+En el apartado mensajes tendrán control para añadir, modificar o eliminar cualquier mensaje introducido por el mismo usuario.
+
+Para facilitar esta interacción los botones de añadir, modificar o borrar solo se visualizan si el usuario tiene permisos suficientes
+para interactuar con los mismos.
+
+Para mayor seguridad las claves de acceso y de registro se han encriptado.
+
+Cuando un usuario se registra, se envía automáticamente un correo confirmando el registro al correo proporcionado en el
+momento del registro.
+
+Se han controlado los posibles errores de redirecionamiento, usando un enrutador básico que redirije en caso de ser necesario
+al asuario a la pagina principal del foro, o en caso de producirse algún error lo muestra al usuario, permitiendo una
+implementación básica de enrutamiento para la aplicación PHP, que proporciona una estructura simple para manejar las
+solicitudes HTTP y llamar a los controladores correspondientes.
+
+A mayores en toda la funcionalidad de la aplicación se han controlado los posibles errores de usabilidad lanzando al usuario
+siempre mensajes de alerta en caso de ser necesario o de confirmación de las acciones. También se redirige al usuario para que nunca
+se produzca una caída del servicio, la pagina principal o al lugar que se considera oportuno para evitar errores inesperados.
+
+No se ha llegado a controlar la inyección SQL, queda este desarrollo que propiciaría un nivel de seguridad superior para
+un desarrollo posterior.
+
+Se proporcionan los scripts de creación de la base de datos así como de los usuarios de la misma, tambíen se adjunto el
+diagrama entidad-relación de la base de datos.
+
+1. Pantalla de Login o Registro.
+2. Listado de temas, mensajes, categorías del Foro
+3. Encriptación de claves
+4. Control de inyección SQL
+5. Envío automático de mails en el momento del registro de un usuario.
+6. Control de errores
+7. Utilización de objetos
+8. Diseño
+9. Arquitectura MVC

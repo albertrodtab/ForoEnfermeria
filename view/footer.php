@@ -1,6 +1,6 @@
 
 <!--Pie de la actividad-->
-<body>
+
 <footer>
 
     <div class="foot">
@@ -58,5 +58,7 @@
     </div>
 
 </footer>
-</body>
-</html>
+
+</htmle>
+
+
